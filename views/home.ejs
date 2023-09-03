@@ -1,0 +1,42 @@
+<div class="container m-3">
+  <div class="row col-md-5 ">
+    <h1>Upload Files</h1>
+    <form action="/file/upload" method="post" enctype="multipart/form-data" class="border p-2 rounded">
+      <div class="mb-3">
+        <label for="filename" class="form-label">File Name</label>  
+        <input type="text" class="form-control" name="filename" placeholder="File name">
+      </div>
+      <div class="mb-3">
+        <label for="File" class="form-label">CSV File</label>  
+        <input type="file" class="form-control" name="File" accept=".csv">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>  
+  </div>
+  <hr>
+  <div class="row">
+    <div class="container rounded bg-secondary p-2 mt-3">
+      <h2 class="text-white text-center">All files</h2>
+      <div class="row ">
+        <% Files.forEach(file => { %>
+          <div class="col-md-2 mb-4">
+            <div class="card text-center">
+              <div class="card-header">
+                <h5 class="card-title"><%= file.name %></h5>
+              </div>
+              <div class="card-body">
+                <img src="csv.png" class="card-img-top" alt="CSV Icon">
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <a href="/file/view?id=<%= file._id %>" class="btn btn-primary btn-sm">View</a>
+                <a href="/file/delete?id=<%= file._id %>" class="btn btn-primary btn-sm">Delete</a>
+              </div>          
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>        
+  </div>
+</div>
+  
+
