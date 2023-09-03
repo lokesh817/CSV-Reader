@@ -57,7 +57,9 @@ module.exports.deleteCSV = async function (req, res) {
     const uploadedFilePath = fileToDelete.csv;
 
     // Delete the file from the filesystem
-    fs.unlinkSync(path.join(__dirname, '..', uploadedFilePath));
+    // fs.unlinkSync(path.join(__dirname, '..', uploadedFilePath));
+    fs.unlinkSync(path.join(__dirname, '..', ...uploadedFilePath.split('/')));
+
 
     // Delete the file record from the database
     await File.findByIdAndDelete(fileId);

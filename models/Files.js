@@ -2,7 +2,8 @@ const mongoose = require('mongoose'); // Import the mongoose library for MongoDB
 const multer = require('multer'); // Import the multer library for file uploads
 const path = require('path'); // Import the path module for file path manipulation
 
-const CSV_Path = path.join('/upload/Files'); // Define the path for storing CSV files
+// const CSV_Path = path.join('/upload/Files'); // Define the path for storing CSV files
+const CSV_Path = path.join('/upload', 'Files');
 
 // Define the schema for the 'File' model
 const FileSchema = new mongoose.Schema(
